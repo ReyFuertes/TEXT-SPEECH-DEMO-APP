@@ -1,0 +1,25 @@
+
+<form *ngIf="form" [formGroup]="form" novalidate (ngSubmit)="onSubmit()">
+  <div class="row"><textarea class="form-control" formControlName="content" placeholder="Content" rows="7"></textarea></div>
+
+  <div class="row">
+    <div class="col-md-3"><input type="text" class="form-control input" placeholder="Author" formControlName="author"  /></div>
+    <div class="col-md-6"><input type="text" class="form-control input" placeholder="Subject" formControlName="subject"  /></div>
+    <div class="col-md-3"><input type="text" class="form-control input" placeholder="Date" formControlName="date"  /></div>
+  </div>
+
+  <div class="row btn-actions">
+    <button type="button" *ngIf="localStorageService.getActionIndex() === 1" class="btn btn-danger col-sm-12 col-md-3" (click)="onDelete(form.value)">Delete</button>
+    <button type="submit" class="btn btn-success col-sm-12 col-md-3 ">{{ localStorageService.getActionIndex() === 1 ? 'Save Changes': 'Save' }}</button>
+    <button type="button" *ngIf="localStorageService.getActionIndex() === 1" (click)="display = true" class="btn btn-primary col-sm-12 col-md-3">Share</button>
+  </div>
+</form>
+
+<p-toast [style]="{marginTop: '80px'}" position="top-center" key="tc"></p-toast>
+
+<p-dialog header="Send Email" [(visible)]="display" responsive="true" >
+  <div class="col-12"><input type="email" class="form-control" placeholder="Email Here" /></div>
+  <p-footer>
+    <button type="button" class="btn btn-primary" (click)="display = false">Send Email</button>
+  </p-footer>
+</p-dialog>

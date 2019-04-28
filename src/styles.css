@@ -1,0 +1,19 @@
+body {
+  max-width: 1200px;
+  margin: 0 auto;
+  min-width: 350px;
+}
+
+.btn-group-vertical > .btn,
+.btn-group > .btn {
+  position: relative;
+  flex: 0 1 auto;
+  width: 100%;
+}
+
+@media (max-width: 480px) {
+  :host ::ng-deep .ui-dialog {
+    min-width: 340px !important;
+    width: 340px !important;
+  }
+}

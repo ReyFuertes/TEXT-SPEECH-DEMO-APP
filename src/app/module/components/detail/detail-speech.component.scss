@@ -1,0 +1,18 @@
+:host {
+  .row {
+    margin: 10px;
+  }
+
+  .btn-actions {
+    float: right;
+
+    button {
+      margin: 5px;
+      min-width: 125px;
+    }
+  }
+
+  input {
+    margin: 5px 0;
+  }
+}

@@ -1,0 +1,40 @@
+
+<div class="row">
+  <div class="btn-group" role="group">
+    <button type="button" (click)="onClick(1)" [ngClass]="{'is-active': isActive === 1}" class="btn btn-light">View my Speeches</button>
+    <button type="button" (click)="onClick(2)" [ngClass]="{'is-active': isActive === 2}" class="btn btn-light">Submit a new Speech</button>
+    <button type="button" (click)="onClick(3)" [ngClass]="{'is-active': isActive === 3}" class="btn btn-light">Search all Speeches</button>
+  </div>
+
+  <div [ngStyle]="{'left': 'calc(100% - 70px)', 'position': 'relative'}">
+    <div class="menu dropdown show">
+      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown">
+        <i class="fas fa-bars"></i>
+      </a>
+    
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <a class="dropdown-item" href="javascript:void(0)" (click)="onClick(1)" [ngClass]="{'is-active': isActive === 1}">View my Speeches</a>
+        <a class="dropdown-item" href="javascript:void(0)" (click)="onClick(2)" [ngClass]="{'is-active': isActive === 2}">Submit a new Speech</a>
+        <a class="dropdown-item" href="javascript:void(0)" (click)="onClick(3)" [ngClass]="{'is-active': isActive === 3}">Search all Speeches</a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="bar" [ngStyle]="{'position': 'relative', 'left': '-45px'}"><i (click)="onShow()" class="fas fa-bars fa-2x"></i></div>
+</div>
+
+
+<div class="row">
+  <div *ngIf="isActive !== 2" class="col-sm-3">
+    <app-list-speech [display]="showSidebar"></app-list-speech>
+  </div>
+
+  <div class="col" [ngClass]="{'move-left': showSidebar}"><router-outlet></router-outlet></div>
+</div>
+
+<p-dialog header="Search Keyword" [(visible)]="display" [modal]="true" [responsive]="true" [width]="450" [minWidth]="350" [minY]="70" [maximizable]="true" [baseZIndex]="10000">
+  <app-search-speech></app-search-speech>
+  <p-footer>
+      <button type="button" class="btn btn-light" (click)="display=false">Close</button>
+  </p-footer>
+</p-dialog>

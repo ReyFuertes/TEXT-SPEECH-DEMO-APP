@@ -1,0 +1,10 @@
+<ul [ngClass]="{'show': display}" class="list-group">
+  <li
+    *ngFor="let speech of speechList"
+    class="list-group-item"
+    (click)="onClick(speech)"
+    [ngClass]="{ 'is-active': speech.id === isActive }"
+  >
+    {{ speech.subject }}
+  </li>
+</ul>

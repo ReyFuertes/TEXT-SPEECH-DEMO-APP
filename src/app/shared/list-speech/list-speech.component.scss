@@ -1,0 +1,36 @@
+:host {
+  .list-group {
+    margin-top: 10px;
+
+    .list-group-item {
+      &:hover {
+        cursor: pointer;
+        color: #000;
+        background-color: #ccc;
+        border-color: #ccc;
+      }
+    }
+
+    .is-active {
+      color: #000;
+      background-color: #ccc;
+      border-color: #ccc;
+    }
+  }
+
+  .show {
+    display: block !important;
+    z-index: 9999;
+    position: absolute;
+  }
+
+  .hide {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .list-group {
+    display: none;
+  }
+}

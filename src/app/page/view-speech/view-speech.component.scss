@@ -1,0 +1,56 @@
+:host {
+  .btn-group {
+    width: 100%;
+  }
+
+  .page-item {
+    width: 30%;
+  }
+
+  .row {
+    margin: 10px;
+  }
+
+  .is-active {
+    color: #fff;
+    background-color: #0069d9;
+    border-color: #0062cc;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .move-left {
+    left: 120px;
+  }
+
+  .move-back {
+    left: 0;
+  }
+
+  .bar {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  :host {
+    .btn-group {
+      display: none;
+    }
+
+    .bar {
+      display: block;
+    }
+
+    .menu {
+      display: block;
+    }
+
+    .side-list {
+      width: 0;
+      display: none;
+    }
+  }
+}
